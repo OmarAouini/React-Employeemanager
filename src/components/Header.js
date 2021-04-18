@@ -80,6 +80,7 @@ const Header = () => {
           variant="outline-light"
           disabled={isLoading}
           onClick={!isLoading ? handleClick : null}
+          as={Link} to="/login"
         >
           {isLoading ? "loading" : <PersonFill alt="Login"/>}
         </Button>
