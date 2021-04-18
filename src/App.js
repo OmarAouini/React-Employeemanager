@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import TableComp from './components/TableComp';
 
 function App() {
+
+  var employeeList = [
+    {"firstName": "pippo", "lastName":"pip", "age":22},
+    {"firstName": "pluto", "lastName":"pluti", "age":35},
+    {"firstName": "topolino", "lastName":"mouse", "age":31},
+    {}
+  ]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TableComp data={employeeList}/>
     </div>
   );
 }
