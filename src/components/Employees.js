@@ -8,12 +8,11 @@ const Employees = () => {
         {"firstName": "pippo", "lastName":"pip", "age":22},
         {"firstName": "pluto", "lastName":"pluti", "age":35},
         {"firstName": "topolino", "lastName":"mouse", "age":31},
-        {}
       ]
    
     return(
         <div>
-            <TableComp data ={employeeList}/>
+            <TableComp data ={employeeList} id="employeesTable" />
         </div>
     )
 }

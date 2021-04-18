@@ -39,7 +39,7 @@ const Header = () => {
 
 
   return (
-    <Navbar bg="primary" variant="dark">
+    <Navbar bg="primary" variant="dark" id="navbar" className="navbar">
       <Navbar.Brand href="/home" className="headerButton">
         <img
           alt=""

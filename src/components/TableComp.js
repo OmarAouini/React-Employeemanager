@@ -34,8 +34,8 @@ const TableComp = (props) => {
   }
 
   return (
-    <div>
-    <Table striped bordered hover size="sm">
+    <div className="tableContainer" id="tableContainer">
+    <Table striped bordered hover size="sm" className="tableComp" id="tableComp">
       <thead>
         <tr>{getHeaders()}<td>Edit</td><td>Delete</td></tr>
       </thead>
