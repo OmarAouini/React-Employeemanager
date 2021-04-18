@@ -1,7 +1,9 @@
+import { Button } from "react";
 import React from "react";
+import { GearFill, TrashFill } from "react-bootstrap-icons";
 import Table from "react-bootstrap/Table";
 
-//generic reusable table component
+//generic reusable table component with edit and delete buttons
 const TableComp = (props) => {
 
   function getKeys() {
@@ -21,6 +23,12 @@ const TableComp = (props) => {
     return items.map((row, index) => {
       return <tr key={index}>
           <RenderRow key={index} data={row} keys={keys}/>
+          <td>
+            <GearFill color="primary"/>
+          </td>
+          <td>
+            <TrashFill color="danger"/>
+          </td>
         </tr>
     })
   }
@@ -29,7 +37,7 @@ const TableComp = (props) => {
     <div>
     <Table striped bordered hover size="sm">
       <thead>
-        <tr>{getHeaders()}</tr>
+        <tr>{getHeaders()}<td>Edit</td><td>Delete</td></tr>
       </thead>
       <tbody>{getRowsData()}</tbody>
     </Table>

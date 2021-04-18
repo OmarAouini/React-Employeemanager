@@ -60,9 +60,9 @@ const Header = () => {
         onMouseLeave={hideDropdown}
         >
         <Dropdown.Item as={Link} to="/employees">Employees</Dropdown.Item>
-        <Dropdown.Item href="/action2">action2</Dropdown.Item>
-        <Dropdown.Item href="/action3">action3</Dropdown.Item>
-        <Dropdown.Item href="/action4">action4</Dropdown.Item>
+        <Dropdown.Item as={Link} to="/action2">action2</Dropdown.Item>
+        <Dropdown.Item as={Link} to="/action3">action3</Dropdown.Item>
+        <Dropdown.Item as={Link} to="/action4">action4</Dropdown.Item>
         </DropdownButton>
         <Nav.Link as={Link} to="/about">About Us</Nav.Link>
       </Nav>
