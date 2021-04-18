@@ -1,18 +1,18 @@
 import './App.css';
-import TableComp from './components/TableComp';
+import {Switch, Route} from "react-router-dom"
+import AboutUs from './components/AboutUs';
+import Home from './components/Home';
+import Employees from './components/Employees'
 
 function App() {
 
-  var employeeList = [
-    {"firstName": "pippo", "lastName":"pip", "age":22},
-    {"firstName": "pluto", "lastName":"pluti", "age":35},
-    {"firstName": "topolino", "lastName":"mouse", "age":31},
-    {}
-  ]
-
   return (
     <div className="App">
-      <TableComp data={employeeList}/>
+      <Switch>
+        <Route path="/home" component={Home}/>
+        <Route path="/about" component={AboutUs}/>
+        <Route path="/employees" component={Employees}/>
+      </Switch>
     </div>
   );
 }

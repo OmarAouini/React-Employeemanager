@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 
+//generic reusable table component
 const TableComp = (props) => {
 
   function getKeys() {

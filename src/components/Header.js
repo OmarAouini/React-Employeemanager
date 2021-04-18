@@ -7,6 +7,7 @@ import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { PersonFill } from "react-bootstrap-icons"
 import { DropdownButton, Dropdown } from "react-bootstrap";
+import {Link} from "react-router-dom"
 
 const Header = () => {
   function simulateLoginRequest() {
@@ -36,20 +37,10 @@ const Header = () => {
     setShow(false);
   }
 
-  //highlight dropdown elements
-  const [active, setActive] = useState(false);
-  const highlightElement = (e) => {
-    setActive(!active);
-  }
-
-  const unFocusElement = (e) => {
-    setActive(false);
-  }
-
 
   return (
     <Navbar bg="primary" variant="dark">
-      <Navbar.Brand href="#home" className="headerButton">
+      <Navbar.Brand href="/home" className="headerButton">
         <img
           alt=""
           src="logo192.png"
@@ -61,19 +52,19 @@ const Header = () => {
         App
       </Navbar.Brand>
       <Nav className="mr-auto px-3 headerButton">
-        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="/home">Home</Nav.Link>
         <DropdownButton
         title="Actions"
         show={show}
         onMouseEnter={showDropDown}
         onMouseLeave={hideDropdown}
         >
-        <Dropdown.Item href="#action1">action1</Dropdown.Item>
-        <Dropdown.Item href="#action2">action2</Dropdown.Item>
-        <Dropdown.Item href="#action3">action3</Dropdown.Item>
-        <Dropdown.Item href="#action4">action4</Dropdown.Item>
+        <Dropdown.Item as={Link} to="/employees">Employees</Dropdown.Item>
+        <Dropdown.Item href="/action2">action2</Dropdown.Item>
+        <Dropdown.Item href="/action3">action3</Dropdown.Item>
+        <Dropdown.Item href="/action4">action4</Dropdown.Item>
         </DropdownButton>
-        <Nav.Link href="#about">About us</Nav.Link>
+        <Nav.Link as={Link} to="/about">About Us</Nav.Link>
       </Nav>
       <Form inline >
         <FormControl
