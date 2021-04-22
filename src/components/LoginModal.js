@@ -45,7 +45,7 @@ const LoginModal = (props) => {
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" />
                         <Form.Text className="text-muted">
-                        password must be 8 characters minimum and include at least 1 special character
+                        insert your password
                         </Form.Text>
                     </Form.Group>
                     <Button variant="primary" type="submit" onClick={(value) => handleSubmit(value)}>Submit</Button>
