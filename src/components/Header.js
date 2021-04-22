@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import { PersonFill } from "react-bootstrap-icons"
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import {Link} from "react-router-dom"
+import LoginModal from "./LoginModal";
 
 const Header = () => {
   function simulateLoginRequest() {
@@ -17,7 +18,13 @@ const Header = () => {
   //loading animation login
   const [isLoading, setLoading] = useState(false);
 
-  const handleClick = () => setLoading(true);
+  //modal show hook
+  const [showLoginModal, setshowLoginModal] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+    setshowLoginModal(true);
+  };
 
   useEffect(() => {
     if (isLoading) {
@@ -28,6 +35,11 @@ const Header = () => {
     }
   }, [isLoading]);
 
+
+  //login
+  const loginUser = (user) => {
+    //loginFunction()
+  }
   
   //show and hide dropdownmenu on hover
   const [show, setShow] = useState(false);
@@ -86,8 +98,10 @@ const Header = () => {
           {isLoading ? "loading" : <PersonFill alt="Login"/>}
         </Button>
       </Nav>
+      <LoginModal show={showLoginModal} hide={(value) => setshowLoginModal(value)} login={(user) => loginUser(user)}/>
     </Navbar>
   );
+
 };
 
 export default Header;
