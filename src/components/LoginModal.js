@@ -7,8 +7,10 @@ import Button from "react-bootstrap/Button"
 
 const LoginModal = (props) => {
 
+    //show state passed in from header comp
     const [show, setShow] = useState(props.show);
 
+    //passing hide state to header
     const handleClose = (e) => {
         setShow(false);
         props.hide(false);

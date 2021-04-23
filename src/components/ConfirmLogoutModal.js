@@ -6,8 +6,12 @@ import Button from "react-bootstrap/Button"
 
 const ConfirmLogoutModal = (props) => {
 
+    //state passed from header comp
     const [show, setShow] = useState(props.show);
     
+
+    //TODO fix
+    //hide passed to header comp
     const handleCancel = () => {
         setShow(false);
         props.hide(false);

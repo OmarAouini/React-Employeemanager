@@ -5,13 +5,14 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
-import { PersonFill } from "react-bootstrap-icons"
+import { Person, PersonFill } from "react-bootstrap-icons"
 import { DropdownButton, Dropdown } from "react-bootstrap";
 import {Link} from "react-router-dom"
 import LoginModal from "./LoginModal";
 import ConfirmLogoutModal from "./ConfirmLogoutModal";
 
 const Header = () => {
+
   function simulateLoginRequest() {
     return new Promise((resolve) => setTimeout(resolve, 2000));
   }
@@ -31,7 +32,11 @@ const Header = () => {
   //handle Login click
   const handleClick = () => {
     setLoading(true);
+    if(isLoggedUser) {
     setshowLoginModal(true);
+    } else {
+      setshowLogoutModal(true);
+    }
   };
 
   const handleClickLogout = () => {
@@ -57,6 +62,7 @@ const Header = () => {
     setisLoggedUser(true);
   }
 
+
   //logout
   const logoutUser = () => {
     //logoutFunction() TODO
@@ -79,6 +85,35 @@ const Header = () => {
   const confirmLogout = () => {
     if(isLoggedUser) {
       return <ConfirmLogoutModal show={showLogoutModal} hide={(value) => setshowLogoutModal(value)} isLoggedIn={isLoggedUser} logout={logoutUser}/>
+    }
+  }
+
+  //login buttons variant
+  const LoginOrLogoutButton = (isLoggedUser) => {
+    if (isLoggedUser) {
+      return (<Nav>
+              <Button
+              className="headerButton"
+              variant="outline-light"
+              disabled={isLoading}
+              onClick={!isLoading ? handleClick : null}
+              as={Link} to="/login"
+              >
+                {isLoading ? "loading" : <PersonFill alt="Login"/> }
+              </Button>
+            </Nav>)
+    } else {
+      return (<Nav>
+              <Button
+              className="headerButton"
+              variant="outline-light"
+              disabled={isLoading}
+              onClick={!isLoading ? handleClick : null}
+              as={Link} to="/logout"
+              >
+              {isLoading ? "loading" : <Person alt="Logout"/> }
+              </Button>
+            </Nav>)
     }
   }
 
@@ -118,18 +153,9 @@ const Header = () => {
         />
         <Button variant="outline-light">Search</Button>
       </Form>
-      <Nav>
-        <Button
-          className="headerButton"
-          variant="outline-light"
-          disabled={isLoading}
-          onClick={!isLoading ? handleClick : null}
-          as={Link} to="/login"
-        >
-          {isLoading ? "loading" : <PersonFill alt="Login"/>}
-        </Button>
-      </Nav>
+      {LoginOrLogoutButton(isLoggedUser)}
       <LoginModal show={showLoginModal} hide={(value) => setshowLoginModal(value)} isLoggedIn={isLoggedUser} login={(user) => loginUser(user)}/>
+      <ConfirmLogoutModal show={showLogoutModal} hide={(value) => setshowLogoutModal(value)} isLoggedIn={isLoggedUser} logout={(user) => logoutUser(user)}/>
     </Navbar>
   );
 
